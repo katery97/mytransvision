@@ -14,7 +14,7 @@ composer.phar
 logs/*.log
 logs/github_log.txt
 python-venv
-vendor
+#vendor
 web/assets
 web/data.tar.gz
 web/download/.htaccess
