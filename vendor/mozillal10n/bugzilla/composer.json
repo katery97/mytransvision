@@ -1,0 +1,22 @@
+{
+    "name": "mozillal10n/bugzilla",
+    "description": "Functions used to query Bugzilla in l10n tools",
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/mozilla-l10n/phpclass-cache"
+        }
+    ],
+    "require": {
+        "mozillal10n/cache": "0.*"
+    },
+    "require-dev": {
+        "atoum/atoum" : "~2.0",
+        "friendsofphp/php-cs-fixer": "~2.1"
+    },
+    "autoload": {
+        "psr-0": {
+            "Bugzilla": "src/"
+        }
+    }
+}
