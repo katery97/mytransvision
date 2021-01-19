@@ -1,0 +1,28 @@
+[config]
+
+; Path to the data root folder. Data will be stored in web/TMX
+root=${TRANSVISIONDIR}/web/
+
+; Path to Git checkout of Transvision
+install=${TRANSVISIONDIR}/
+
+; Path to configuration files for Transvision
+config=${TRANSVISIONDIR}/app/config
+
+; URL to l10n web service. Wrap the value between quotes if the URL contains special characters like ~
+l10nwebservice='http://service-dee0xsaq-1304485299.gz.apigw.tencentcs.com/release/api'
+
+; Only needed for production setup
+local_hg=/temp
+
+; Only needed for production setup
+local_git=/temp
+
+; Only needed for production setup
+libraries=/temp
+
+; Flag to know if we are working in production mode or development mode
+dev=true
+
+; Flag to display page time generation and memory usage in console logs (development mode only)
+perf_check=false

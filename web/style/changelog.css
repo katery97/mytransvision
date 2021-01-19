@@ -1,0 +1,145 @@
+/* Rules specific for /news (changelog) */
+
+@font-face {
+    font-family: 'Fira Mono';
+    src: url(/fonts/FiraMono/FiraMono-Regular.woff2) format('woff2'),
+         url(/fonts/FiraMono/FiraMono-Regular.woff) format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+#changelog #pagecontent {
+    margin: 30px auto;
+    width: 80%;
+    max-width: 1014px;
+}
+
+#changelog #pagecontent ul {
+    list-style: none;
+    margin: 0;
+    padding-left: 0;
+    width: 100%;
+}
+
+#changelog #pagecontent ul li {
+    display: table;
+}
+
+#changelog #pagecontent ul li div,
+.release_tag {
+    display: table-cell;
+}
+
+#changelog h3 {
+    margin: 0;
+    width: 100%;
+}
+
+#changelog h3 {
+    padding: 10px 0 5px;
+    margin: 0;
+}
+
+#changelog .page_description {
+    display: none;
+}
+
+.github_link {
+    padding-left: 30px;
+    display: block;
+    height: 28px;
+    background: url(/img/github.svg) top left no-repeat transparent;
+    background-size: 24px;
+    padding-top: 3px;
+}
+
+.github_commit {
+    font-family: 'Fira Mono', monospace;
+    font-size: 0.9em;
+    margin: 0 0.3em;
+}
+
+.release_number a:hover {
+    text-decoration: none;
+}
+
+.release_number:target a {
+    color: #f00;
+}
+
+.release_number {
+    margin: 60px auto 0;
+    padding: 0 0 5px;
+    border-bottom: none;
+}
+
+.release_number:nth-of-type(1) {
+    margin-top: 10px;
+}
+
+.release_number:target .release_date {
+    background: #f73434;
+}
+
+.release_date {
+    display: block;
+    width: 80px;
+    background: #30a4db;
+    color: #fff;
+    font-size: 0.6em;
+    margin: 4px auto;
+    padding: 0.2em 0.4em;
+    border-radius: 0.25em;
+}
+
+.release_tag {
+    border-right: 3px solid #ccc;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05), 0 -1px 0 rgba(0, 0, 0, 0.05) inset;
+    color: #333;
+    display: inline-block;
+    font-size: 11px;
+    font-style: normal;
+    left: 0;
+    line-height: 1.1;
+    padding: 4px 2px 4px 13px;
+    text-transform: uppercase;
+    width: 92px;
+    margin-right:4px;
+    border-color: #555;
+}
+
+.new_feature {
+    background-color: #c8c8ff;
+}
+
+.exp_feature {
+    background-color: #ffedcf;
+}
+
+.bugfix {
+    background-color: #ffc864;
+}
+
+.improvement {
+    background-color: #96e196;
+}
+
+.change {
+    background-color: #e9cfff;
+}
+
+.regression {
+    color: #fff;
+    background-color: #ff6464;
+}
+
+code {
+    font-family: Courier, Courier New, monospace;
+    font-weight: normal;
+    color: #333;
+    background-color: #fafafa;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05), 0 -1px 0 rgba(0, 0, 0, 0.05) inset;
+    text-shadow: 1px 1px 0 #fff;
+    white-space: nowrap;
+    padding: 0.1em 0.3em;
+}

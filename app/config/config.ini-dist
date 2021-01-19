@@ -1,0 +1,38 @@
+[config]
+
+; Path to the data root folder. TMX files will be stored in root/TMX so that
+; they could be shared between multiple versions of Transvision
+root=/home/pascalc/transvision/data/
+
+; Path to the local Mercurial clones, both en-US and l10n. Could be external
+; to the Git checkout of Transvision, as long as scripts have access to it.
+local_hg=/home/pascalc/transvision/data/hg
+
+; Path to the local Git clones, both en-US and l10n. Could be external
+; to the Git checkout of Transvision, as long as scripts have access to it.
+local_git=/home/pascalc/transvision/data/git
+
+; This path is used to store libraries (e.g. compare-locales)
+libraries=/home/pascalc/transvision/data/libraries
+
+; Path to Git checkout of Transvision, it will contain setup/update scripts
+; and the web folder
+install=/home/pascalc/github/transvision
+
+; Path to configuration files for Transvision
+config=/home/pascalc/repos/github/transvision/app/config
+
+; URL to l10n web service. Wrap the value between quotes if the URL contains special characters like ~
+l10nwebservice = "http://service-dee0xsaq-1304485299.gz.apigw.tencentcs.com/release/api"
+
+; Flag to know if we are working in production mode or development mode
+dev=false
+
+; Github secret key for continuous integration on Beta site
+github_key=putsecretkeyhere
+
+; Optional: URL of the Piwik instance with a trailing slash. If Transvision uses https, Piwik has to be on https too.
+piwik_url=
+
+; Optional: Piwik site ID, this is a number you get from your Piwik instance
+piwik_id=

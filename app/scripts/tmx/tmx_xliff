@@ -1,0 +1,60 @@
+#!/usr/bin/env php
+<?php
+namespace Transvision;
+
+// Script should not be called from the Web
+if (php_sapi_name() != 'cli') {
+    die("This command can only be used in CLI mode.\n");
+}
+
+if (count($argv) < 2) {
+    die("This command needs more parameters, please check tmx_xliff --help.\n");
+}
+if (isset($argv[1])) {
+    if (in_array($argv[1], ['-h', '--help'])) {
+        $command_help = "tmx_xliff - Create TMX from XLIFF file\n" .
+                "Usage: tmx_xliff [project_name]\n\n" .
+                "Example: tmx_xliff firefox_ios\n";
+        die($command_help);
+    }
+}
+
+include __DIR__ . '/../../inc/init.php';
+
+$project_name = $argv[1];
+
+if (! isset(Project::$repos_info[$project_name])) {
+    die("Unknown project: {$project_name}.\n");
+}
+$repo_data = Project::$repos_info[$project_name];
+if ($repo_data['source_type'] != 'xliff') {
+    die("Unsupported format: {$repo_data['source_type']}.\n");
+}
+
+error_log('Extraction of strings from XLIFF file');
+
+$base_path = isset($repo_data['git_subfolder'])
+    ? GIT . "{$project_name}/{$repo_data['git_subfolder']}"
+    : GIT . $project_name;
+foreach (Files::getFoldersInPath($base_path, ['templates']) as $locale) {
+    $out_translation = '';
+    $total_strings = 0;
+
+    foreach ($repo_data['files'] as $file_name) {
+        $xliff_path = "{$base_path}/{$locale}/{$file_name}";
+        if (file_exists($xliff_path)) {
+            $strings = Xliff::getStrings($xliff_path, $project_name);
+            $total_strings = count($strings);
+            foreach ($strings as $string_id => $translation) {
+                $out_translation .= "'{$string_id}' => '{$translation}', \n";
+            }
+        } else {
+            error_log("{$locale}: file is missing");
+        }
+    }
+
+    $out_translation = "<?php\n\$tmx = [\n" . $out_translation . "];\n";
+
+    Files::fileForceContents(TMX . "{$locale}/cache_{$locale}_{$project_name}.php", $out_translation);
+    error_log("{$locale}: {$total_strings} strings");
+}
