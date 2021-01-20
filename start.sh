@@ -55,7 +55,7 @@ php ./windows_setup.php
 
 php ./app/scripts/generate_sources
 
-#php ./app/source/generate.php
+php ./app/source/generate.php
 
 case "$1" in
     -remote)
