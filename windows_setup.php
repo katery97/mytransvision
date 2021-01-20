@@ -1,6 +1,6 @@
 <?php
 
-echo "generate config.ini ../r/n";
+echo "generate config.ini ../r\n";
 
 $dir = dirname(__FILE__);
 
