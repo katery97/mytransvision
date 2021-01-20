@@ -1,13 +1,13 @@
 <?php
 
-echo "generate config.ini ..\r\n";
+echo "generate config.ini ../r/n";
 
 $dir = dirname(__FILE__);
 
-$ini_dir = $dir.'\app\config\config.ini';
+$ini_dir = $dir.'/app/config/config.ini';
 
 //Copy config.ini file
-if(!copy($dir.'\app\config\config.ini-dev', $ini_dir)){
+if(!copy($dir.'/app/config/config.ini-dev', $ini_dir)){
     echo "config generate error please check config folder...\r\n";
     exit();
 }
